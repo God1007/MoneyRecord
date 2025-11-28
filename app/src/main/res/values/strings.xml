@@ -1,3 +1,18 @@
 <resources>
     <string name="app_name">MoneyRecord</string>
+    <string name="header_title">Money Record</string>
+    <string name="storage_preferences">Storage preferences</string>
+    <string name="budget_hint">Monthly budget</string>
+    <string name="currency_hint">Currency symbol</string>
+    <string name="save_preferences">Save preferences</string>
+    <string name="summary_label">This month so far:</string>
+    <string name="new_expense_title">Add a new expense</string>
+    <string name="description_hint">What did you spend on?</string>
+    <string name="amount_hint">Amount</string>
+    <string name="add_expense">Add expense</string>
+    <string name="budget_exceeded">You are over budget.</string>
+    <string name="budget_remaining">Left to spend: %1$s</string>
+    <string name="budget_not_set">Set a monthly budget to track remaining funds.</string>
+    <string name="expense_added">Expense saved.</string>
+    <string name="preferences_saved">Preferences saved.</string>
 </resources>
