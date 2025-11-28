@@ -2,6 +2,7 @@ package com.example.moneyrecord;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -37,6 +38,8 @@ public class MainActivity extends AppCompatActivity {
     private EditText currencyInput;
     private TextView totalExpensesView;
     private TextView budgetStatusView;
+    private TextView emptyStateView;
+    private RecyclerView expenseList;
 
     private ExpenseDao expenseDao;
     private ExpenseAdapter adapter;
@@ -72,6 +75,8 @@ public class MainActivity extends AppCompatActivity {
         currencyInput = findViewById(R.id.currency_input);
         totalExpensesView = findViewById(R.id.total_expenses);
         budgetStatusView = findViewById(R.id.budget_status);
+        emptyStateView = findViewById(R.id.expense_empty_state);
+        expenseList = findViewById(R.id.expense_list);
 
         Button addExpenseButton = findViewById(R.id.add_expense_button);
         Button savePreferencesButton = findViewById(R.id.save_preferences_button);
@@ -81,11 +86,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void setupRecyclerView() {
-        RecyclerView recyclerView = findViewById(R.id.expense_list);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        expenseList.setLayoutManager(new LinearLayoutManager(this));
         adapter = new ExpenseAdapter();
         adapter.setCurrencySymbol(getCurrencySymbol());
-        recyclerView.setAdapter(adapter);
+        expenseList.setAdapter(adapter);
     }
 
     private void loadPreferences() {
@@ -101,6 +105,13 @@ public class MainActivity extends AppCompatActivity {
     private void observeExpenses() {
         expenseDao.getAllExpenses().observe(this, expenses -> {
             adapter.setExpenses(expenses);
+            if (expenses == null || expenses.isEmpty()) {
+                emptyStateView.setVisibility(View.VISIBLE);
+                expenseList.setVisibility(View.GONE);
+            } else {
+                emptyStateView.setVisibility(View.GONE);
+                expenseList.setVisibility(View.VISIBLE);
+            }
             updateTotals(expenses);
         });
     }

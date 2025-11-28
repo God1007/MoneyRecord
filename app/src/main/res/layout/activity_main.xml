@@ -176,6 +176,26 @@
                 android:layout_marginTop="12dp"
                 android:text="@string/add_expense" />
 
+            <TextView
+                android:id="@+id/expense_history_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="@string/expense_history_title"
+                android:textAppearance="@style/TextAppearance.Material3.TitleMedium"
+                android:textColor="@android:color/black"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/expense_empty_state"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@string/expense_empty_state"
+                android:textAppearance="@style/TextAppearance.Material3.BodyMedium"
+                android:textColor="@android:color/darker_gray"
+                android:visibility="gone" />
+
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/expense_list"
                 android:layout_width="match_parent"

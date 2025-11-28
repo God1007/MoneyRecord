@@ -15,4 +15,6 @@
     <string name="budget_not_set">Set a monthly budget to track remaining funds.</string>
     <string name="expense_added">Expense saved.</string>
     <string name="preferences_saved">Preferences saved.</string>
+    <string name="expense_history_title">Expense history</string>
+    <string name="expense_empty_state">No expenses recorded yet. Add your first expense to see it here.</string>
 </resources>
